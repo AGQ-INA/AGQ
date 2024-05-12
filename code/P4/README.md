@@ -72,7 +72,7 @@ Note that the **hashID** equals **hash1** splicing **hash2** (e.g. **hashID**: 0
 The P4 program does not check nor update the ICRC value, so the end-host servers should disable ICRC checking.
 
 ### 3.2 some notes for the example code
-In the example code, we integrate the AGQ switch plugin in a simple INA method. For simplicity, we just use one pipe to implement all the fuctions, and aggregate 4 uint data. You can implement your INA code in another pipe to meet your need.
+In the example code, we integrate the AGQ switch plugin in a simple INA method. For simplicity, we just use one pipe to implement all the fuctions, and aggregate 4 uint data. You can implement your INA code in another pipe to meet your need. In this example code, we integrate all the table entries in the match-action part, so you don't need to configure the tables after you run the code.
 
 For implementation detail, pls refer to the paper.
 
