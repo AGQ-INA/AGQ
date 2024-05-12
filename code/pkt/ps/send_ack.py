@@ -34,9 +34,9 @@ class INA(Packet):
                     BitField("workerID", 0, 8),
                     BitField("total_workers",2, 8),
                     BitField("data0", 61632*2, 32),
-                    BitField("data1", 4, 32),
-                    BitField("data2", 6, 32),
-                    BitField("data3", 8, 32),
+                    BitField("data1", 21427260*2, 32),
+                    BitField("data2", 1422537*2, 32),
+                    BitField("data3", 14479075*2, 32),
                     BitField("data4", 0, 32),
                     BitField("data5", 0, 32),
                     BitField("data6", 0, 32),
@@ -50,8 +50,8 @@ class INA(Packet):
                     BitField("data14", 0, 32),
                     BitField("data15", 0, 32),
                     ByteField("isACK", 1),
-                    BitField("hashID", 100, 32),
-                    BitField("hashID2", 100, 32)
+                    BitField("hashID", 300, 16), # hashID < 35000(capacity in p4)
+                    BitField("hashID2", 300, 16)
                     ]
 
 ina_field = INA()

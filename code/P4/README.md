@@ -44,6 +44,7 @@ source set_sde.bash
     ```bash
     $SDE/run_switchd.sh -p agq
     ```
+    Then you can configure the port according to your testbed.
 
 
 ## 3. Design

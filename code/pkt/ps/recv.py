@@ -15,7 +15,10 @@ try:
     iface=sys.argv[1]
 except:
     iface="enp129s0f0np0" # replace it with your ps iface
-
+try:
+    ip_addr = sys.argv[2]
+except:
+    ip_addr = "10.2.2.3" # replace it with your ps ip address
 
 class INA(Packet):
     name = "INA"
@@ -40,8 +43,8 @@ class INA(Packet):
                     BitField("data14", 0, 32),
                     BitField("data15", 0, 32),
                     ByteField("isACK", 0),
-                    BitField("hashID", 0, 32),
-                    BitField("hash1", 0, 29),
+                    BitField("hashID", 0, 16),
+                    BitField("hash1", 0, 13),
                     BitField("hash2", 0, 3)
                     ]
 
@@ -49,4 +52,6 @@ bind_layers(UDP, INA, dport=50000)
 bind_layers(UDP, INA, dport=50001)
 print ("Sniffing on ", iface)
 print ("Press Ctrl-C to stop...")
-sniff(iface=iface, prn=lambda p: p.show())
+filt = "ip dst "+ip_addr
+print(filt)
+sniff(filter=filt, iface=iface, prn=lambda p: p.show())

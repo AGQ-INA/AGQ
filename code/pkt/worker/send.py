@@ -34,9 +34,9 @@ class INA(Packet):
                     BitField("workerID", 0, 8),
                     BitField("total_workers",2, 8),
                     BitField("data0", 61632, 32),
-                    BitField("data1", 2, 32),
-                    BitField("data2", 3, 32),
-                    BitField("data3", 4, 32),
+                    BitField("data1", 21427260, 32),
+                    BitField("data2", 1422537, 32),
+                    BitField("data3", 14479075, 32),
                     BitField("data4", 0, 32),
                     BitField("data5", 0, 32),
                     BitField("data6", 0, 32),
@@ -50,8 +50,8 @@ class INA(Packet):
                     BitField("data14", 0, 32),
                     BitField("data15", 0, 32),
                     ByteField("isACK", 0),
-                    BitField("hashID", 1, 32), # you can either compute the hashID on host or in the switch, in this example, we simply set it to 1
-                    BitField("hashID2", 1, 32)
+                    BitField("hashID", 300, 16), # you can either compute the hashID on host or in the switch, in this example, we simply set it in host, make sure that hashID < 35000(capacity in p4)
+                    BitField("hashID2", 300, 16)
                     ]
 
 ina_field = INA() # you can define the pkt content. In this example, we use the above info.
