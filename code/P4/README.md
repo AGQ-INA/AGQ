@@ -27,7 +27,7 @@ source set_sde.bash
       -DCMAKE_INSTALL_PREFIX=$SDE/install \
       -DCMAKE_MODULE_PATH=$SDE/cmake      \
       -DP4_NAME=agq\
-      -DP4_PATH=/root/agq/agq.p4 # replace with your path
+      -DP4_PATH=/root/AGQ-master/code/agq.p4 # replace with your path
       
     make agq
     make install
